@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C̷̠̈́l̵̜̉i̸̭͐c̷̬͌k̴͓̍ ̶̲̏e̶̊ͅv̶̞̈́e̶̘̅r̶̛̮y̸̜̽ţ̵͠ḥ̷̒î̶̖n̵̯͂g̸̪̏ ̴̻͒</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="style/main.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('back3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 700px; /* Specify the height of the element */
+        } 
+        #video-background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire viewport */
+            z-index: -1; /* Place it behind other content *
+        }
+
+    
+
+        .content {
+            position: relative;
+            z-index: 1; / * Place it above the video background */
+            padding: 0px;
+            color: white;
+        }
+
+        /* Style for the pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999;
+        }
+
+        /* Style for the overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 9998;
+        }
+
+        .scrollable-content{
+            max-height: 300px;
+            overflow: auto;
+        }
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="container-fluid">
+    <div class="row">
+            <nav class="navbar navbar-expand-md
+                    justify-content-start
+                    bg-dark navbar-dark
+                    col-12">
+
+                <!-- Brand -->
+
+                <a class="navbar-brand" href="Website.html"> </a>
+                <!-- Responsive Button for the smaller menu -->
+                <br>
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+
+                        <!-- Links -->
+                       <li class="nav-item">
+                            <a class="nav-link" href="Website.html">gO hOmE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Hello.html">Ḣ̴͎E̴̫̒L̴̪̇L̴̪͝Ò̵̙</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Nothing2.html">C̷̠̈́l̵̜̉i̸̭͐c̷̬͌k̴͓̍ ̶̲̏e̶̊ͅv̶̞̈́e̶̘̅r̶̛̮y̸̜̽ţ̵͠ḥ̷̒î̶̖n̵̯͂g̸̪̏ ̴̻͒</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+   <form id="FlagForm" method="post" action="valF.php">
+        <label for="numberInput">Enter the number you found:</label>
+        <input type="number" id="numberInput" name="numberInput" required>
+        <button type="submit">Check</button>
+    </form>
+
+
+      
+
+
+
+ 
+
+
+
+
+    <script>
+    
+
+        var video = document.getElementById("video-background");
+        video.controls = false; // Hide controls
+
+        // Play video
+         function playVideo() {
+         video.play();
+        }
+
+         // Pause video
+        function pauseVideo() {
+         video.pause();
+        }
+
+document.getElementById("FlagForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+
+    var formData = new FormData(this);
+    
+    fetch(this.action, {
+        method: this.method,
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent-N-Consent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="style/main.css" rel="stylesheet">
+    <style>
+    	#video-background{
+    		position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire viewport */
+            z-index: -1; /* Place it behind other content *
+    	}
+
+    
+
+    	.content {
+            position: relative;
+            z-index: 1; / * Place it above the video background */
+            padding: 0px;
+            color: white;
+        }
+
+        /* Style for the pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999;
+            width: 60%;
+            max-width: 400px;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        /* Style for the overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 9998;
+        }
+
+        .scrollable-content{
+        	max-height: 300px;
+        	overflow: auto;
+        }
+
+        .diff-text{
+        	color: white;
+        	position: absolute; 
+        	top: 300px; 
+        	left: 80%; 
+        	transform: translateX(-50%);
+        	max-width: 200px;
+        	text-align: center;
+        }
+
+        .diff-text2{
+        	color: white;
+        	position: absolute; 
+        	top: 500px; 
+        	left: 60%; 
+        	transform: translateX(-50%);
+        	max-width: 200px;
+        	text-align: center;
+        }
+
+        .diff-text3{
+        	color: white;
+        	position: absolute; 
+        	top: 150px; 
+        	left: 65%; 
+        	transform: translateX(-50%);
+        	max-width: 200px;
+        	text-align: center;
+        }
+
+         .diff-text4{
+        	color: white;
+        	position: absolute; 
+        	top: 100px; 
+        	left: 50%; 
+        	transform: translateX(-50%);
+        	max-width: 200px;
+        	text-align: center;
+        }
+
+         .diff-text4{
+        	color: white;
+        	position: absolute; 
+        	top: 100px; 
+        	left: 50%; 
+        	transform: translateX(-50%);
+        	max-width: 200px;
+        	text-align: center;
+        }
+
+    </style>
+    
+</head>
+<body>
+	<video id="video-background" autoplay muted loop controls>
+        <source src="Back.mp4" type="video/mp4">
+        <!-- Provide fallback content here -->
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container-fluid">
+    <div class="row">
+            <nav class="navbar navbar-expand-md
+                    justify-content-start
+                    bg-dark navbar-dark
+                    col-12">
+
+                <!-- Brand -->
+
+                <a class="navbar-brand" href="Website.html"> </a>
+                <!-- Responsive Button for the smaller menu -->
+                <br>
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+
+                        <!-- Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="Website.html">gO hOmE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Hello.html">Ḣ̴͎E̴̫̒L̴̪̇L̴̪͝Ò̵̙</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Nothing2.html">C̷̠̈́l̵̜̉i̸̭͐c̷̬͌k̴͓̍ ̶̲̏e̶̊ͅv̶̞̈́e̶̘̅r̶̛̮y̸̜̽ţ̵͠ḥ̷̒î̶̖n̵̯͂g̸̪̏ ̴̻͒</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+
+    <p class="diff-text">
+    	Please be curious! Check around this simple page. 
+    	No information here, check a different area. 
+		Don't be afraid! Nothing is here !
+	</p>
+
+	<p class="diff-text2">
+    	P̸̻͑l̶̗̀e̷̬̓a̴̩͑š̷͖e̸̠̎ ̵͍̒b̸̰̓ë̶̢́ ̶̻̎c̵͐ͅȕ̶̩r̷̦̆i̵̧͑ò̶̙ȗ̶͉s̴̬͗!̵̧͒ ̷̡͝C̶͙̿h̵͉̍é̴̝c̵̖̓k̶̫̑ ̸̜͒ȧ̵̟ṙ̸͉o̴̖͝ǔ̷̟ñ̸͚d̵̝̆ ̶̠̑ţ̸́h̸̤̔ǐ̷̲s̴̰̈ ̴̰̃s̴̜̓i̸͎̒m̴̨̓p̵̧̾l̶͈̒e̷̥͗ ̸̬̒p̵͘ͅȃ̷̯g̷̻̎e̶͔̅.̴̤̑ ̷͙̍
+̸̫̀ ̴̖̑ ̵̜̀ ̸̥͝ ̶͍̏	̸͆͜N̸̹̋o̸̫̚ ̶̳̓i̷͓̽n̵͙͌f̷̛͖o̵̗͊r̶͎͠m̷͖̚a̶̧͑t̶̥̋ȋ̶̬o̶͓̍n̸̜̈́ ̷͉̊h̷̬̑e̶̦̎r̸̜͐e̸̬̿,̷̘̀ ̵̛͙c̸͛ͅh̴̬͋e̶̗̓c̴̜͌k̷͚̃ ̴̠̃a̴̳̐ ̴̣͆d̷̟͂i̴̳͝f̸̰̀f̴̫̆e̶̞̓r̶̹̄e̷͈̒n̴͙͐ť̶͕ ̴̘̇ä̴̠ṟ̴͂e̵̦̋a̶̟͠.̷͎̓ ̴͍̊
+̵̜͂	̸̻́	̵͋͜D̷̞̑o̷̮̒n̵͔̏'̵̬͒t̸̗̎ ̸̻͛b̶̡̾e̸̪̎ ̵̢͂a̵̫̓f̴̮̓r̸͔̋ȃ̸̯i̴̖͝d̷͕͗!̸͕̀ ̴͚̊N̵̖̅o̵̖͠t̸̡̐h̷̨̽i̸͐͜ṉ̷̉g̷̟̃ ̶͕͊i̵̪̔s̸̨̉ ̷̲͝h̶͔̓e̴̬̿r̴̜̈e̵̙͆ ̸͖̋!̶̯̒ 92
+	</p>
+
+	<p class="diff-text3">
+    P̸̰͍̀l̵͚̆̂̈ͅḙ̴̔̓̍ä̴͔̍̅s̷̹͓̘̿̕ẻ̸͓ ̵͙̜̹̿b̸͔̌͝e̴̟͛̌ ̸̖͎͙́c̴̛̪͚̖̅̾u̶̧͚͑̿ř̵̨̗i̵͍̪̎o̸̰̎́̄ȕ̵̮̈́s̶͓͂̽͑!̵̲͇̤͗̈́ ̴̦̆̌ͅC̸̦̓ḧ̶̺͖̣́̾ê̴̤ͅc̵͕̦͂̀̆ķ̸̓ ̶̢̈́ả̶̲̊r̴̙̀͘̕o̸̱̾̓ư̷͓͇͑̽ṇ̸̛͖͐͜d̴͔̝̉ ̸̥̫̤̃t̸̜̜̖͌͐h̵̺͝i̸͈͙̕s̷̞͚͇͐ ̸͕̮̇ŝ̷͚̆̅͜i̸͚̞̍͂ͅm̸̨̭͋̀ṗ̴̬̲͜l̴̼̬̮̉̿ē̶͎̈́͝ ̷̢̝̤͋̀̚p̷͍̬͇̈́̓͝ǎ̴͉̯̫̎g̷͙̏͛͂é̸̢̹̍.̶͔̈͋ ̷͇͕̳́̈
+̶̥͑͒̎ ̷͈̌̓̇ ̷̫̌̋ ̵̳̔ͅ ̸̻̰̀̈̈	̶̦̙̋Ṇ̴̆̈́́ȏ̷͉̹͌ ̷̭̃͝ͅi̵̤̟͐n̶̼̼̄̀̂f̷̨̙̋o̷̻̞̐̅͜r̶͚̔̃m̷̞̽a̵̦͗̏̎t̷͙͖͉̓i̵̳̔ó̵̬̪̦͂̄n̸͈̘͛̇ ̸̣̱̯͛̒͝ḫ̴̦͙̀́͋é̴̜̙̥r̸̪͍͓͋̋ẽ̷̥̭̈́,̶͉̹̑͛̎ ̸̮͚̂̉ͅc̵͓̋͗̐h̷̩̒͒è̴̙̎̈́ć̵̦̻͉́k̷͚̺̮̈́̈́̑ ̴̼̮͉͒͂ạ̴͍̘̈̕ ̷͓̆̇d̷̥̳̟͗i̵̭̕͝f̴̢͍͒́f̸̛̫͋͝e̴̝̜̐r̴̛̳̹̈́͑e̸͇̍̔̕n̵̝̯̅ẗ̶͙̩́ ̶͙̥̾ã̴͔̣͍̊ŗ̷̢̜̋ȩ̴̗͖̒a̵̗̓.̸̙̰͆ ̵̛̩̩
+̸̧̢̓͛	̵͉̂	̶̱̙̇Ḓ̶͕͋o̶̯̟͋n̵̻͕̫̋'̶̨̛̐t̸͖̱̓̉ ̶̞̘̰̒b̵̲͍́̍ë̷̟́́̇ ̶̬͋̓a̵͎͔͆̌͝f̶̱͇́̉ŗ̷̻̽͝͝a̵̝̦̹͋̑̋i̵̳̦͊̇ḑ̷̒͘ͅ!̷̨͊͐̀ ̴̘̿Ń̷̲̜͐̓ò̵̟t̸̪̺͆͑͆͜ḥ̶̑͌í̷͖̅̊n̴͇͕̈̀͝g̶̜̲͐ ̴̛̯͑i̶͇̒̓̎s̶̯̥͇̾ ̸̲̈̽h̶̝͛ė̷͖̣̒͜r̵̲̓͊ḛ̸͙̠̆̌̔ ̶̨̳͙́!̴̨̪̥̅́P̵͔̃͋͌͜l̴̦̔̈̚e̶̢̢͋á̷̫̮͝ș̸̪̿̎́è̷̤̰̥ ̵̪̑̄b̶͉̽e̴̳͗ ̷̧̛̰͐̽c̶̘̱̊͗ų̶̛͈̪͝r̷̨̗̝͑i̶̖͘o̸͓̱̔͂u̴̠̣̎͒ṡ̴̛̻͙̔!̵̤͚̾ ̴͇̆C̵̜̲̽͊̚h̷̲̖̘̉͒̿ȩ̶̻̓͒c̴͕͎̼̉͊̉k̵͂͐͜͝ ̶̣͔̭͑̾̊a̴͓̹̤̅͑͋r̸̨̫̍̚o̸̡͇͐͂̄u̸̡͕̪̇̅͝n̶̲͔̝̔̔̄d̸̘̣͒̒ ̴͇̓͒̕t̴͉͚̋͝h̷̡̤̲̍ȋ̴͈̘̚̚ś̸̟̱ ̸͚̙̚̕ş̷̣̜̓ì̷̳͋m̴̬̜͋̍̆p̴̧̱̏̀̍l̸̯͒̌̓ę̸̛͔̯̊̀ ̷̢̣̓p̸͚̗͒̔a̶̦̔͑g̶͇͐̾̒ͅe̸͖̱͙͌̀͘.̶̢̘͑ ̶̭͖͉̔
+̶̞̋̌͛ ̴̏ͅ ̵͉̯̂͐ ̵̧̭̝̃̈̿ ̶̰͔̣́̒	̷͈̦͍̈́N̸̳̝͂̚ǫ̸̧̭̽͐ ̴̧͇͇̍̔ḭ̷͆ń̶̢̓̊f̶̘̼̎͘o̵̟͕̎r̷̗̝̮̕m̸̭̲͐͘á̷̰t̶̞̘͗̂i̸̲̫͕͐͊͋o̷͑̋ͅn̶̪͚͊ ̶̗̺̔ͅḫ̴͖̂ͅë̸̗͉r̴̨͈̱͛̏̕e̴͇̅̋,̸̞̭͗ ̸̰͚͠c̵̨̩̪̆h̶͖͝e̴̞̺̓͆ć̵͔͝k̸͚̈ ̴̛̳̕a̴̲̳͒ ̶̅̊̑͜d̸̺̫̈ͅi̴̼̻̍f̵̛͚̋͘f̵̹͂͊̕ë̵͔́ŗ̴̼̓e̵̱̹̾n̶̳͒͜t̷̯̟͗ ̶͚̀̈́a̶̡̛̔r̶̦͂ė̴̩̄̚ả̴̳̪̐ͅ.̷͔̒͘͝ͅ ̶̪̬̯̚͠
+̸̺̩̘̓	̶̲̩̖̊͗	̵̜̖͈͋D̸̬̭̥̓o̴̕͜͜n̷͍̪̓̏̏'̷͕̓̽t̴͙͓̆ ̶̯͔͋̽͗͜b̶̝̖͋̚ĕ̸̛̜͘ ̷̛̘͊̾ả̸̜f̸̤͓̼͆̌̇r̷̢̮̠̒à̸̮̽ì̴̥͙̺d̸̬͌̽!̷̢̻̆͐̊ ̸̧̤̦͋Ñ̵̮͌̑ȯ̶͍̩t̴͔̣̀͠h̶̯͚͕̋͒͒i̸̟̐̋̕n̷̤̗̝̿͋͘ǧ̸̲̗̑ ̶͔̙͕̓̀͝i̷̫͋̃̃s̴͇͚̈́̉̐ ̵̘͊̍h̴͔̀̈͝é̸̪͔͝ͅr̶̭͓͚̎͗̆ȇ̸̟͖̊͂ ̵̯̎̐͂!̶̮̥͆͘
+	</p>
+
+
+
+	<p class="diff-text4">
+    	Please be curious! Check around this simple page. 
+    	No information here, check a different area. 
+		Don't be afraid! Nothing is here !
+	</p>
+
+    <!-- The overlay div -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Pop-up div for selecting options -->
+    <div id="popup1" class="popup">
+    <div class="scrollable-content">
+        <h1>Terms and Agreement</h1>
+    	<h2><b>You don't have to read </b></h2>
+        <ol>
+
+			<p>Welcome to Consent-N-Consent, a platform dedicated to facilitating informed consent and privacy rights. This document constitutes a legally binding agreement between you (referred to herein as "User," "You," or "Your") and Consent-N-Consent ("We," "Us," or "Our") governing Your use of the Consent-N-Consent website ("Website") and any associated services, features, content, or applications (collectively, the "Services"). By accessing or using the Website and Services, You acknowledge that You have read, understood, and agree to be bound by the terms and conditions set forth herein. If You do not agree with any part of these terms, You may not access or use the Website and Services.</p>
+        	<li><p>Acceptance of Terms: By accessing or using the Website and Services, You agree to be bound by these Terms and all applicable laws and regulations. If You do not agree to all of these Terms, You are not authorized to use the Website and Services.You won't find the flag here.</p></li>
+        	<li><p>Description of Services: Consent-N-Consent provides a platform for users to engage in informed consent processes, manage privacy preferences, and access resources related to consent and privacy rights.We may modify, update, or discontinue any aspect of the Website and Services at any time without prior notice.</p></li>
+        	<li><p>User Registration: In order to access certain features of the Website and Services, You may be required to create a user account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.You are responsible for maintaining the confidentiality of Your account credentials and for all activities that occur under Your account. You agree to immediately notify Us of any unauthorized use of Your account or any other breach of security.Or will you?<p></li>
+        	<li><p>User Content: You retain ownership of any content, including but not limited to text, images, videos, and documents, that You submit, upload, or display on the Website ("User Content").By submitting User Content, You grant Us a worldwide, non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such User Content in any media format and through any media channels.<p></li>
+        	<li><p>Privacy Policy: Your use of the Website and Services is subject to Our Privacy Policy, which is hereby incorporated by reference. Please review the Privacy Policy carefully for information about how We collect, use, and disclose Your personal information. <p></li>
+        	<li><p>You agree not to engage in any of the following prohibited activities:
+			(a) Violating any applicable laws, regulations, or third-party rights;
+			(b) Impersonating any person or entity or falsely stating or otherwise misrepresenting Your affiliation with a person or entity;
+			(c) Uploading, posting, or transmitting any User Content that is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable;
+			(d) Interfering with or disrupting the integrity or performance of the Website and Services or the data contained therein;
+			(e) Attempting to gain unauthorized access to the Website and Services or any related systems or networks.</p></li>
+        	<li><p>The Website and Services, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, are the property of Consent-N-Consent or its licensors and are protected by copyright, trademark, and other intellectual property laws.You may not modify, reproduce, distribute, transmit, publicly display, publicly perform, publish, license, create derivative works from, or sell any content or materials obtained from or through the Website and Services without Our prior written consent.</p></li>
+        	<li><p>The Website and Services are provided on an "as-is" and "as-available" basis without any warranties of any kind, whether express or implied.We do not warrant that the Website and Services will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p></li>
+        	<li><p>In no event shall Consent-N-Consent give any hint, unless you keep reading the next couple of paragraphs, its officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to Your use of the Website and Services.Our total liability to You for any claims arising out of or relating to these Terms or Your use of the Website and Services shall not exceed the total amount paid by You, if any, to Us during the six (6) months preceding the date of the claim.</p></li>
+        	<li><p>These Terms and any dispute arising out of or relating to these Terms or Your use of the Website and Services shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law principles.</p></li>
+        	<li><p>We reserve the right to modify, amend, or replace these Terms at any time in Our sole discretion. We will notify You of any material changes to these Terms by posting a notice on the Website or by sending You an email.</p></li>
+        	<li><p>Acceptance of Terms: By accessing or using the Website and Services, You agree to be bound by these Terms and all applicable laws and regulations. If You do not agree to all of these Terms, You are not authorized to use the Website and Services.You won't find the flag here.</p></li>
+        	<li><p>Description of Services: Consent-N-Consent provides a platform for users to engage in informed consent processes, manage privacy preferences, and access resources related to consent and privacy rights. If you kept reading the number you need is twelve. We may modify, update, or discontinue any aspect of the Website and Services at any time without prior notice.</p></li>
+        	<li><p>User Registration: In order to access certain features of the Website and Services, You may be required to create a user account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.You are responsible for maintaining the confidentiality of Your account credentials and for all activities that occur under Your account. You agree to immediately notify Us of any unauthorized use of Your account or any other breach of security.Or will you?<p></li>
+        	<li><p>User Content: You retain ownership of any content, including but not limited to text, images, videos, and documents, that You submit, upload, or display on the Website ("User Content").By submitting User Content, You grant Us a worldwide, non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such User Content in any media format and through any media channels.<p></li>
+        	<li><p>Privacy Policy: Your use of the Website and Services is subject to Our Privacy Policy, which is hereby incorporated by reference. Please review the Privacy Policy carefully for information about how We collect, use, and disclose Your personal information. <p></li>
+        	<li><p>You agree not to engage in any of the following prohibited activities:
+			(a) Violating any applicable laws, regulations, or third-party rights;
+			(b) Impersonating any person or entity or falsely stating or otherwise misrepresenting Your affiliation with a person or entity;
+			(c) Uploading, posting, or transmitting any User Content that is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable;
+			(d) Interfering with or disrupting the integrity or performance of the Website and Services or the data contained therein;
+			(e) Attempting to gain unauthorized access to the Website and Services or any related systems or networks.</p></li>
+        	<li><p>The Website and Services, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, are the property of Consent-N-Consent or its licensors and are protected by copyright, trademark, and other intellectual property laws.You may not modify, reproduce, distribute, transmit, publicly display, publicly perform, publish, license, create derivative works from, or sell any content or materials obtained from or through the Website and Services without Our prior written consent.</p></li>
+        	<li><p>he Website and Services are provided on an "as-is" and "as-available" basis without any warranties of any kind, whether express or implied.We do not warrant that the Website and Services will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p></li>
+        	<li><p>In no event shall Consent-N-Consent give any hint, unless you keep reading this paragraph the number you need is tweleve. Its officers, directors, employees, or agents be liable for any indirect , incidental, special, consequential, or punitive damages arising out of or relating to Your use of the Website and Services.Our total liability to You for any claims arising out of or relating to these Terms or Your use of the Website and Services shall not exceed the total amount paid by You, if any, to Us during the six (6) months preceding the date of the claim.</p></li>
+        	<li><p>These Terms and any dispute arising out of or relating to these Terms or Your use of the Website and Services shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law principles.</p></li>
+        	<li><p>. We reserve the right to modify, amend, or replace these Terms at any time in Our sole discretion. We will notify You of any material changes to these Terms by posting a notice on the Website or by sending You an email.</p></li>
+        	<li><p>Acceptance of Terms: By accessing or using the Website and Services, You agree to be bound by these Terms and all applicable laws and regulations. If You do not agree to all of these Terms, You are not authorized to use the Website and Services.You won't find the flag here.</p></li>
+        	<li><p>Description of Services: Consent-N-Consent provides a platform for users to engage in informed consent processes, manage privacy preferences, and access resources related to consent and privacy rights.We may modify, update, or discontinue any aspect of the Website and Services at any time without prior notice.</p></li>
+        	<li><p>User Registration: In order to access certain features of the Website and Services, You may be required to create a user account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.You are responsible for maintaining the confidentiality of Your account credentials and for all activities that occur under Your account. You agree to immediately notify Us of any unauthorized use of Your account or any other breach of security.Or will you?<p></li>
+        	<li><p>User Content: You retain ownership of any content, including but not limited to text, images, videos, and documents, that You submit, upload, or display on the Website ("User Content").By submitting User Content, You grant Us a worldwide, non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such User Content in any media format and through any media channels.<p></li>
+        	<li><p>Privacy Policy: Your use of the Website and Services is subject to Our Privacy Policy, which is hereby incorporated by reference. Please review the Privacy Policy carefully for information about how We collect, use, and disclose Your personal information. <p></li>
+        	<li><p>You agree not to engage in any of the following prohibited activities:
+			(a) Violating any applicable laws, regulations, or third-party rights;
+			(b) Impersonating any person or entity or falsely stating or otherwise misrepresenting Your affiliation with a person or entity;
+			(c) Uploading, posting, or transmitting any User Content that is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable;
+			(d) Interfering with or disrupting the integrity or performance of the Website and Services or the data contained therein;
+			(e) Attempting to gain unauthorized access to the Website and Services or any related systems or networks.</p></li>
+        	<li><p>The Website and Services, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, are the property of Consent-N-Consent or its licensors and are protected by copyright, trademark, and other intellectual property laws.You may not modify, reproduce, distribute, transmit, publicly display, publicly perform, publish, license, create derivative works from, or sell any content or materials obtained from or through the Website and Services without Our prior written consent.</p></li>
+        	<li><p>he Website and Services are provided on an "as-is" and "as-available" basis without any warranties of any kind, whether express or implied.We do not warrant that the Website and Services will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p></li>
+        	<li><p>In no event shall Consent-N-Consent, its officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to Your use of the Website and Services.Our total liability to You for any claims arising out of or relating to these Terms or Your use of the Website and Services shall not exceed the total amount paid by You, if any, to Us during the six (6) months preceding the date of the claim.</p></li>
+        	<li><p>These Terms and any dispute arising out of or relating to these Terms or Your use of the Website and Services shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law principles.</p></li>
+        	<li><p>. We reserve the right to modify, amend, or replace these Terms at any time in Our sole discretion. We will notify You of any material changes to these Terms by posting a notice on the Website or by sending You an email.</p></li>
+        	<li><p>Yay it's finished</p></li>
+        	
+        </ol>
+
+        	<p>
+
+
+        <button onclick="hidePopup('popup1')">Close</button>
+        <button onclick="showPopup('popup2')">I don't consent</button>
+        <button onclick="showPopup('popup3')">I consent</button>
+    </div>
+</div>
+
+ 
+
+    <!-- Pop-up div for Option 2 -->
+     <div id="popup2" class="popup">
+        <h2>YOU SHOULD CONSENT</h2>
+        <button onclick="hidePopup('popup2')">Close</button>
+    </div>
+
+    <div id="popup3" class="popup">
+        <h2>YOU CONSENTED</h2>
+        <p>Here is a <a href="lol.html">link </a> </p>
+        <button onclick="hidePopup('popup3')">Close</button>
+    </div>
+
+ 
+
+
+
+
+    <script>
+        // Function to show the specified pop-up
+        function showPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        // Function to hide the specified pop-up
+        function hidePopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // Show the initial pop-up when the page loads
+        window.onload = function() {
+            showPopup('popup1');
+        };
+
+        var video = document.getElementById("video-background");
+  		video.controls = false; // Hide controls
+
+  		// Play video
+ 		 function playVideo() {
+   		 video.play();
+  		}
+
+ 		 // Pause video
+  		function pauseVideo() {
+   		 video.pause();
+  		}
+
+    </script>
+</body>
+</html>

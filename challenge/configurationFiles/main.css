@@ -1,0 +1,31 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 10;
+    width: 100%;
+    background-color: aliceblue;
+    color: Black;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.bg-dark {
+    background-color: #ffead3ff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.container{
+    padding: 3px 16px;
+}
+
+
+.navbar-brand {
+
+}
+.navbar-toggler{
+    color: black;
+}
